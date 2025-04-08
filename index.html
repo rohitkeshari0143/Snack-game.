@@ -34,11 +34,45 @@
             font-size: 16px;
             color: #888; /* Light gray for the footer text */
         }
+        .controls {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .controls button {
+            width: 60px;
+            height: 40px;
+            margin: 5px;
+            font-size: 16px;
+            background-color: #444;
+            color: white;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .controls button:hover {
+            background-color: #666;
+        }
+        .controls .row {
+            display: flex;
+            justify-content: center;
+        }
     </style>
 </head>
 <body>
     <div id="score">Score: 0</div>
     <canvas id="gameCanvas" width="400" height="400"></canvas>
+    <div class="controls">
+        <div class="row">
+            <button id="up">Up</button>
+        </div>
+        <div class="row">
+            <button id="left">Left</button>
+            <button id="down">Down</button>
+            <button id="right">Right</button>
+        </div>
+    </div>
     <footer>Developed by Rohit Keshari</footer> <!-- Developer name added here -->
     <script>
         const canvas = document.getElementById("gameCanvas");
@@ -119,7 +153,7 @@
             return false;
         }
 
-        // Control the snake
+        // Control the snake using keyboard
         document.addEventListener("keydown", (event) => {
             if (event.key === "ArrowLeft" && direction !== "RIGHT") {
                 direction = "LEFT";
@@ -130,6 +164,20 @@
             } else if (event.key === "ArrowDown" && direction !== "UP") {
                 direction = "DOWN";
             }
+        });
+
+        // Control the snake using buttons
+        document.getElementById("left").addEventListener("click", () => {
+            if (direction !== "RIGHT") direction = "LEFT";
+        });
+        document.getElementById("up").addEventListener("click", () => {
+            if (direction !== "DOWN") direction = "UP";
+        });
+        document.getElementById("right").addEventListener("click", () => {
+            if (direction !== "LEFT") direction = "RIGHT";
+        });
+        document.getElementById("down").addEventListener("click", () => {
+            if (direction !== "UP") direction = "DOWN";
         });
 
         // Run the game
