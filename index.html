@@ -58,6 +58,27 @@
             display: flex;
             justify-content: center;
         }
+        #down {
+            margin-top: 10px; /* Add extra space above the Down button */
+        }
+        #token {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            margin: 0 10px; /* Space between Left and Right buttons */
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            background-color: #444;
+            border: 2px solid #fff;
+            border-radius: 50%; /* Make it circular */
+            text-align: center;
+        }
+        #up {
+            margin-bottom: 10px; /* Move the Up button slightly upward */
+        }
     </style>
 </head>
 <body>
@@ -65,12 +86,15 @@
     <canvas id="gameCanvas" width="400" height="400"></canvas>
     <div class="controls">
         <div class="row">
-            <button id="up">Up</button>
+            <button id="up">↑</button> <!-- Up button -->
         </div>
         <div class="row">
-            <button id="left">Left</button>
-            <button id="down">Down</button>
-            <button id="right">Right</button>
+            <button id="left">←</button> <!-- Left button -->
+            <div id="token">R</div> <!-- Token added here -->
+            <button id="right">→</button> <!-- Right button -->
+        </div>
+        <div class="row">
+            <button id="down">↓</button> <!-- Down button -->
         </div>
     </div>
     <footer>Developed by Rohit Keshari</footer> <!-- Developer name added here -->
