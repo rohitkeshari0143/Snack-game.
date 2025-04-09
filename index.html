@@ -217,6 +217,20 @@
             if (direction !== "UP") direction = "DOWN";
         });
 
+        // Control the snake using touch events
+        document.getElementById("left").addEventListener("touchstart", () => {
+            if (direction !== "RIGHT") direction = "LEFT";
+        });
+        document.getElementById("up").addEventListener("touchstart", () => {
+            if (direction !== "DOWN") direction = "UP";
+        });
+        document.getElementById("right").addEventListener("touchstart", () => {
+            if (direction !== "LEFT") direction = "RIGHT";
+        });
+        document.getElementById("down").addEventListener("touchstart", () => {
+            if (direction !== "UP") direction = "DOWN";
+        });
+
         // Run the game
         const game = setInterval(drawGame, 280); // Increased interval to 400ms for slower movement
     </script>
