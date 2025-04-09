@@ -121,6 +121,19 @@
             for (let i = 0; i < snake.length; i++) {
                 ctx.fillStyle = i === 0 ? "#00FF00" : "#008000"; // Bright green for the head, dark green for the body
                 ctx.fillRect(snake[i].x, snake[i].y, box, box);
+
+                // Add eyes to the snake's head
+                if (i === 0) {
+                    ctx.fillStyle = "#000"; // Black color for the eyes
+                    // Left eye
+                    ctx.beginPath();
+                    ctx.arc(snake[i].x + 5, snake[i].y + 5, 2, 0, Math.PI * 2); // Adjust position and size
+                    ctx.fill();
+                    // Right eye
+                    ctx.beginPath();
+                    ctx.arc(snake[i].x + 15, snake[i].y + 5, 2, 0, Math.PI * 2); // Adjust position and size
+                    ctx.fill();
+                }
             }
 
             // Draw the food
@@ -205,7 +218,7 @@
         });
 
         // Run the game
-        const game = setInterval(drawGame, 280); // Adjusted interval for classic speed
+        const game = setInterval(drawGame, 280); // Increased interval to 400ms for slower movement
     </script>
 </body>
 </html>
